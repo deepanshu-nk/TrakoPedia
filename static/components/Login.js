@@ -35,9 +35,9 @@ export default {
             })
                 .then(response => response.json())
                 .then(data => {
-                    localStorage.setItem("auth_token", data["auth_token"]); // Store the token in localStorage
-                    localStorage.setItem("user_id", data.id);
-                    this.$router.push('/'); // Redirect to home page after successful login
+                    localStorage.setItem("auth_token", data.user_details.auth_token); // Store the token in localStorage
+                    localStorage.setItem("user_id", data.user_details.id);
+                    this.$router.push('/'); // Redirect to admin dashboard after successful login
                 })
                 .catch(error => {
                     console.error('Error:', error);

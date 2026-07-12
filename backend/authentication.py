@@ -2,7 +2,7 @@ from flask_restful import Resource
 from flask import request, jsonify, make_response
 from backend.userdatabase import user_datastore
 from flask_security import utils, auth_token_required, roles_required, hash_password
-from backend.models import db 
+from backend.models import Trek, db 
 
 
 class LoginAPI(Resource):
@@ -109,3 +109,16 @@ class RegisterAPI(Resource):
             "message": "Registration successful"
         }
         return make_response(jsonify(response), 201)
+    
+
+class AdminDashboardAPI(Resource):
+    @auth_token_required
+    @roles_required('admin')
+    def get(self):
+        total_treks = Trek.query.count()
+        total_users = user_datastore.user_model.query.count()
+
+        return make_response(jsonify({
+            "total_treks": total_treks,
+            "total_users": total_users
+        }), 200)

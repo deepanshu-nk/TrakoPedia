@@ -41,11 +41,12 @@ def create_app():
 app, api = create_app()
 
 
-from backend.authentication import LoginAPI,LogoutAPI,RegisterAPI
+from backend.authentication import LoginAPI,LogoutAPI,RegisterAPI,AdminDashboardAPI
 
 api.add_resource(LoginAPI, '/api/login')  # Add the LoginAPI resource to the API with the endpoint '/api/login'
 api.add_resource(LogoutAPI, '/api/logout')  # Add the LogoutAPI resource to the API with the endpoint '/api/logout'
 api.add_resource(RegisterAPI, '/api/register')  # Add the RegisterAPI resource to the API with the endpoint '/api/register'
+api.add_resource(AdminDashboardAPI, '/api/admin/dashboard')  # Add the AdminDashboardAPI resource to the API with the endpoint '/api/admin/dashboard'
 
 from backend.crud_api import TrekAPI
 api.add_resource(TrekAPI, '/api/treks', '/api/treks/<int:track_id>')  # Add the TrekAPI resource to the API with the endpoints '/api/treks' and '/api/treks/<int:track_id>'
