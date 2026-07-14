@@ -7,7 +7,7 @@ db = SQLAlchemy()
 class user(db.Model, UserMixin):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(255), unique=True)
+    email = db.Column(db.String(255), unique=False)
     password = db.Column(db.String(255))
     first_name = db.Column(db.String(100))
     last_name = db.Column(db.String(100))
@@ -18,7 +18,6 @@ class user(db.Model, UserMixin):
     fs_uniquifier = db.Column(db.String(255), unique=True, nullable=False)
     fs_token_uniquifier = db.Column(db.String(255), unique=True, nullable=False)
 
-    roles = db.relationship('Role', secondary='roles_users', backref=db.backref('users', lazy='dynamic'))
 
 class Role(db.Model, RoleMixin):
     __tablename__ = 'roles'
@@ -41,26 +40,4 @@ class Trek(db.Model):
     description = db.Column(db.Text)
     difficulty = db.Column(db.Enum("Easy","Moderate","Hard"),nullable=False)
     duration = db.Column(db.Integer)
-    
 
-class TrekLog(db.Model):
-    __tablename__ = "trek_logs"
-
-    id = db.Column(db.Integer, primary_key=True)
-
-    trek_id = db.Column(
-        db.Integer,
-        db.ForeignKey("treks.id")
-    )
-
-    updated_by = db.Column(
-        db.Integer,
-        db.ForeignKey("users.id")
-    )
-
-    action = db.Column(db.String(200))
-
-    timestamp = db.Column(
-        db.DateTime,
-        default=datetime.utcnow
-    )

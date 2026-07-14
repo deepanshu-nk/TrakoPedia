@@ -30,7 +30,6 @@ const App = {
                 <router-link to="/" class="btn btn-outline-primary me-2">Home</router-link>
                 <router-link to="/login" class="btn btn-outline-success">Login</router-link>
                 <router-link to="/register" class="btn btn-outline-warning ms-2">Register</router-link>
-                <router-link to="/admin/dashboard" class="btn btn-outline-danger ms-2">Admin Dashboard</router-link>
             </nav>
             <router-view></router-view>
         </div>

@@ -1,7 +1,7 @@
-import Sidebar from "../components/Sidebar.js"
-import Navbar from "../components/Navbar.js"
-import DashboardCards from "../components/DashboardCards.js"
-import BookingTable from "../components/BookingTable.js"
+import Sidebar from "./Sidebar.js"
+import Navbar from "./Navbar.js"
+import DashboardCards from "./DashboardCards.js"
+import BookingTable from "./BookingTable.js"
 
 export default {
     components: {

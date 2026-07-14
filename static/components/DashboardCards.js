@@ -13,7 +13,7 @@ export default {
             <div class="col-md-3 mb-3">
                 <div class="card shadow-sm">
                     <div class="card-body">
-                        <h6>Total Users</h6>
+                        <h6>{{userdata.total_users}}</h6>
                         <h2>120</h2>
                         <i class="bi bi-people fs-2 text-success"></i>
                     </div>
@@ -38,5 +38,22 @@ export default {
                 </div>
             </div>
         </div>
-    `
+    `,
+    data: function () {
+        return {
+            userdata: {}
+        }
+    },
+    mounted() {
+        fetch('/admin/dashboard', {
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": localStorage.getItem("auth-token")
+            }
+        })
+            .then(response => response.json())
+            .then(data => this.userdata = data)
+
+    }
 }
