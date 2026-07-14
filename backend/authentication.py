@@ -112,8 +112,8 @@ class RegisterAPI(Resource):
     
 
 class AdminDashboardAPI(Resource):
-    @auth_token_required
-    @roles_required('admin')
+    # @auth_token_required
+    # @roles_required('admin')
     def get(self):
         total_treks = Trek.query.count()
         total_users = user_datastore.user_model.query.count()

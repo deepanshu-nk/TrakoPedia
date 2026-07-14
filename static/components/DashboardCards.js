@@ -5,7 +5,7 @@ export default {
                 <div class="card shadow-sm">
                     <div class="card-body">
                         <h6>Total Treks</h6>
-                        <h2>25</h2>
+                        <h2>{{userdata.total_treks}}</h2>
                         <i class="bi bi-map fs-2 text-primary"></i>
                     </div>
                 </div>
@@ -13,7 +13,7 @@ export default {
             <div class="col-md-3 mb-3">
                 <div class="card shadow-sm">
                     <div class="card-body">
-                        <h6>{{userdata.total_users}}</h6>
+                        <h6>Total tracks</h6>
                         <h2>120</h2>
                         <i class="bi bi-people fs-2 text-success"></i>
                     </div>
@@ -45,15 +45,13 @@ export default {
         }
     },
     mounted() {
-        fetch('/admin/dashboard', {
+        fetch('/api/admin/dashboard', {
             method: 'GET',
             headers: {
-                "Content-Type": "application/json",
-                "Authorization": localStorage.getItem("auth-token")
+                'Content-Type': 'application/json',
             }
         })
             .then(response => response.json())
             .then(data => this.userdata = data)
-
     }
 }

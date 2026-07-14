@@ -1,4 +1,9 @@
+import Navbar from "./Navbar.js"
+
 export default {
+    Component: {
+        Navbar
+    },
     template: `
         <div class="card mt-4 shadow-sm">
             <div class="card-header">
@@ -10,18 +15,18 @@ export default {
                 <thead class="table-light">
                     <tr>
                         <th>ID</th>
-                        <th>User</th>
-                        <th>Trek</th>
-                        <th>Date</th>
-                        <th>Status</th>
+                        <th>Track Name</th>
+                        <th>Location</th>
+                        <th>Description</th>
+                        <th>Difficulty</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>B001</td>
-                        <td>Amit Sharma</td>
-                        <td>Everest Base Camp</td>
-                        <td>12 May 2026</td>
+                        <td>{{result.id}}</td>
+                        <td>{{result.trek_name}}</td>
+                        <td>{{result.location}}</td>
+                        <td>{{result.description}}</td>
                         <td>
                             <span class="badge bg-success">
                                 Booked
@@ -53,5 +58,20 @@ export default {
                 </tbody>
             </table>
         </div>
-    `
+    `,
+    data: function () {
+        return {
+            result: {}
+        }
+    },
+    mounted() {
+        fetch('/api/treks', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+            .then(response => response.json())
+            .then(data => this.result = data)
+    }
 }
