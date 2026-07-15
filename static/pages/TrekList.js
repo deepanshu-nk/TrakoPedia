@@ -1,4 +1,8 @@
 export default {
+    Component: {
+        Sidebar,
+        Navbar,
+    },
     template: `
         <div class="d-flex">
             <Sidebar />
