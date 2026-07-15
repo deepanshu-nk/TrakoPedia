@@ -13,8 +13,8 @@ export default {
             <div class="col-md-3 mb-3">
                 <div class="card shadow-sm">
                     <div class="card-body">
-                        <h6>Total tracks</h6>
-                        <h2>120</h2>
+                        <h6>Total Users</h6>
+                        <h2>{{userdata.total_users}}</h2>
                         <i class="bi bi-people fs-2 text-success"></i>
                     </div>
                 </div>

@@ -102,6 +102,7 @@ class RegisterAPI(Resource):
             phone_number=data.get('phone_number', ''),
             address=data.get('address', ''),
             roles=[user_role]  # Assign the 'admin' role to the newly registered user
+            
         )
         db.session.commit()  # Commit the changes to the database
 

@@ -3,6 +3,8 @@ import Login from './components/Login.js';
 import Register from './components/Register.js';
 import AdminDeshboard from './components/AdminDeshboard.js';
 import StaffList from './pages/StaffList.js';
+import CreateTrek from "./pages/CreateTrek.js";
+import EditTrek from "./pages/EditTrek.js";
 
 // 1. Define your routes correctly
 const routes = [
@@ -10,7 +12,9 @@ const routes = [
     { path: '/login', component: Login }, // Changed path to avoid overlapping with Flask backend endpoint /api/login
     { path: '/register', component: Register }, // Added route for registration page
     { path: '/admin/dashboard', component: AdminDeshboard }, // Added route for admin dashboard
-    { path: '/treks', component: StaffList }
+    { path: '/treks', component: StaffList },
+    { path: "/treks/create", component: CreateTrek },
+    { path: "/treks/edit/:id", component: EditTrek }
 ];
 
 // 2. Create the router using Vue Router 4 syntax

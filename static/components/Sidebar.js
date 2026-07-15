@@ -11,7 +11,7 @@ export default {
 
         <div class="nav flex-column mt-3">
 
-            <a class="nav-link active" href="#/admin">
+            <a class="nav-link active" href="#/admin/dashboard">
                 <i class="bi bi-speedometer2"></i>
                 Dashboard
             </a>

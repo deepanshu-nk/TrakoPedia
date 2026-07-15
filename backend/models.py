@@ -40,4 +40,8 @@ class Trek(db.Model):
     description = db.Column(db.Text)
     difficulty = db.Column(db.Enum("Easy","Moderate","Hard"),nullable=False)
     duration = db.Column(db.Integer)
+    start_date = db.Column(db.String)
+    end_date = db.Column(db.String)
+    total_slots = db.Column(db.Integer)
+    available_slots = db.Column(db.Integer)
 
