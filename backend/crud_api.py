@@ -115,7 +115,7 @@ class TrekAPI(Resource):
 class UserAPI(Resource):
     def get(self,User_id = None):
         if User_id:
-            Users = 
+            Users = user.query.get(User_id)
             if not Users:
                 return make_response(jsonify({"message": "User not found"}))
             result = {
