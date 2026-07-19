@@ -39,38 +39,6 @@ export default {
                     color: "text-danger"
                 }
             ],
-            // Table Heading
-            columns: [
-                "Booking ID",
-                "User",
-                "Trek",
-                "Booking Date",
-                "Status"
-            ],
-            // Table Data
-            rows: [
-                [
-                    "B001",
-                    "Amit Sharma",
-                    "Everest Base Camp",
-                    "12 May 2026",
-                    "Booked"
-                ],
-                [
-                    "B002",
-                    "Priya Patel",
-                    "Roopkund Trek",
-                    "11 May 2026",
-                    "Booked"
-                ],
-                [
-                    "B003",
-                    "Rahul Verma",
-                    "Kedarkantha Trek",
-                    "10 May 2026",
-                    "Cancelled"
-                ]
-            ]
         }
     },
     template: `

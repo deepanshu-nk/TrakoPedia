@@ -48,9 +48,9 @@ api.add_resource(LogoutAPI, '/api/logout')  # Add the LogoutAPI resource to the 
 api.add_resource(RegisterAPI, '/api/register')  # Add the RegisterAPI resource to the API with the endpoint '/api/register'
 api.add_resource(AdminDashboardAPI, '/api/admin/dashboard')  # Add the AdminDashboardAPI resource to the API with the endpoint '/api/admin/dashboard'
 
-from backend.crud_api import TrekAPI
+from backend.crud_api import TrekAPI, UserAPI
 api.add_resource(TrekAPI, '/api/treks', '/api/treks/<int:track_id>')  # Add the TrekAPI resource to the API with the endpoints '/api/treks' and '/api/treks/<int:track_id>'
-
+api.add_resource(UserAPI, '/api/users' )
 @app.route('/')
 def index():
     return render_template('index.html')

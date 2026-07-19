@@ -1,7 +1,13 @@
+import Sidebar from "../components/Sidebar.js";
+import Navbar from "../components/Navbar.js";
+import DashboardCards from "../components/DashboardCards.js";
+
+
 export default {
     Component: {
         Sidebar,
         Navbar,
+        DashboardCards,
     },
     template: `
         <div class="d-flex">
@@ -19,21 +25,18 @@ export default {
                             <thead class="table-light">
                                 <tr>
                                     <th>ID</th>
-                                    <th>Track Name</th>
-                                    <th>Location</th>
-                                    <th>Description</th>
-                                    <th>Difficulty</th>
-                                    <th>Duration</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Phone Number</th>
+                                    <th>Address</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for="trek in result" :key="trek.id">
-                                    <td>{{trek.id}}</td>
-                                    <td>{{trek.trek_name}}</td>
-                                    <td>{{trek.location}}</td>
-                                    <td>{{trek.description}}</td>
-                                    <td>{{trek.difficulty}}</td>
-                                    <td>{{trek.duration}}</td>
+                                    <td>{{trek.first_name}}</td>
+                                    <td>{{trek.last_name}}</td>
+                                    <td>{{trek.phone_number}}</td>
+                                    <td>{{trek.address}}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -48,7 +51,7 @@ export default {
         }
     },
     mounted() {
-        fetch('/api/treks', {
+        fetch('/api/users', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

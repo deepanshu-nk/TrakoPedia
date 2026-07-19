@@ -5,6 +5,7 @@ import AdminDeshboard from './components/AdminDeshboard.js';
 import StaffList from './pages/StaffList.js';
 import CreateTrek from "./pages/CreateTrek.js";
 import EditTrek from "./pages/EditTrek.js";
+import Users from './pages/UserList.js';
 
 // 1. Define your routes correctly
 const routes = [
@@ -14,7 +15,8 @@ const routes = [
     { path: '/admin/dashboard', component: AdminDeshboard }, // Added route for admin dashboard
     { path: '/treks', component: StaffList },
     { path: "/treks/create", component: CreateTrek },
-    { path: "/treks/edit/:id", component: EditTrek }
+    { path: "/treks/edit/:id", component: EditTrek },
+    { path: "/users", component: Users }
 ];
 
 // 2. Create the router using Vue Router 4 syntax
