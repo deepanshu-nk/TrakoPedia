@@ -115,27 +115,27 @@ class TrekAPI(Resource):
 class UserAPI(Resource):
     def get(self,User_id = None):
         if User_id:
-            Users = user.query.get(User_id)
-            if not Users:
+            data = user.query.get(User_id)
+            if not data:
                 return make_response(jsonify({"message": "User not found"}))
             result = {
-                "id": Users.id,
-                "first_name": Users.first_name,
-                "last_name": Users.last_name,
-                "phone_number": Users.phone_number,
-                "address": Users.address
+                "id": data.id,
+                "first_name": data.first_name,
+                "last_name": data.last_name,
+                "phone_number": data.phone_number,
+                "address": data.address
             }
             return make_response(jsonify(result),200)
         else:
             Users_data = user.query.all()
             result = []
-            for user in Users_data:
+            for u in Users_data:
                 result.append({
-                    "id": user.id,
-                    "first_name": user.first_name,
-                    "last_name": user.last_name,
-                    "phone_number": user.phone_number,
-                    "address": user.address
+                    "id": u.id,
+                    "first_name": u.first_name,
+                    "last_name": u.last_name,
+                    "phone_number": u.phone_number,
+                    "address": u.address
                 })
             return make_response(jsonify(result),200)
 

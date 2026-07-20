@@ -17,15 +17,8 @@ export default {
                 <div class="container-fluid p-4">
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h3 class="mb-0">
-                            Treks List
+                            Users List
                         </h3>
-                        <router-link
-                            to="/treks/create"
-                            class="btn btn-primary"
-                        >
-            
-                            Add Trek
-                        </router-link>
                     </div>
 
                     <div class="card mt-4 shadow-sm">
@@ -38,22 +31,20 @@ export default {
                             <thead class="table-light">
                                 <tr>
                                     <th>ID</th>
-                                    <th>Track Name</th>
-                                    <th>Location</th>
-                                    <th>Description</th>
-                                    <th>Difficulty</th>
-                                    <th>Duration</th>
-                                    <th>Actions</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Phone Number</th>
+                                    <th>Address</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="trek in result" :key="trek.id">
-                                    <td>{{ trek.id }}</td>
-                                    <td>{{ trek.trek_name }}</td>
-                                    <td>{{ trek.location }}</td>
-                                    <td>{{ trek.description }}</td>
-                                    <td>{{ trek.difficulty }}</td>
-                                    <td>{{ trek.duration }}</td>
+                                <tr v-for="u in result" :key="u.id">
+                                    <td>{{ u.id }}</td>
+                                    <td>{{ u.first_name }}</td>
+                                    <td>{{ u.last_name }}</td>
+                                    <td>{{ u.phone_number }}</td>
+                                    <td>{{ u.address }}</td>
                                     <td>
                                         <router-link :to="'/treks/edit/' + trek.id" class="btn btn-sm btn-warning me-2">
                                             <i class="bi bi-pencil-square"></i>
@@ -77,7 +68,7 @@ export default {
         }
     },
     methods: {
-        loadTreks() {
+        loadUsers() {
             fetch("/api/users")
                 .then(response => response.json())
                 .then(data => {
@@ -92,7 +83,7 @@ export default {
                 return;
             }
 
-            fetch("/api/treks/" + id, {
+            fetch("/api/users/" + id, {
                 method: "DELETE",
 
             })
@@ -113,6 +104,6 @@ export default {
         }
     },
     mounted() {
-        this.loadTreks();
+        this.loadUsers();
     }
 }

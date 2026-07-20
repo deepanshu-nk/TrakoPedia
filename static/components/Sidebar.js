@@ -41,7 +41,7 @@ export default {
                 Reports
             </a>
 
-            <a class="nav-link text-danger" href="#/logout">
+            <a class="nav-link text-danger" href="#/login">
                 <i class="bi bi-box-arrow-right"></i>
                 Logout
             </a>
